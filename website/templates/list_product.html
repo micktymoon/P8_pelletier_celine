@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    Ici on aura nos produits.
+    <ul>
+        {% if products %}
+            {% for product in products %}
+                <li>{{ product.name }}</li>
+            {% endfor %}
+        {% else %}
+            <span class="text-danger">Il n'y a aucun produit ici.</span>
+        {% endif %}
+    </ul>
+{% endblock %}
