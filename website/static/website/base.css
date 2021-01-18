@@ -1,0 +1,15 @@
+.container h1
+{
+    color: #f8f9fa;
+    margin-right: 2;
+}
+#menu
+{
+    margin-right:0;
+}
+
+#logo
+{
+    display: flex;
+    align-items: center;
+}
