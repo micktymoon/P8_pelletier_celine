@@ -3,14 +3,61 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'website/base.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'website/bootstrap_styles.css' %}">
+        <link rel="icon" href="data:,">
         <title>Site Pur Beurre</title>
     </head>
     <body>
-    <div class="jumbotron">
-        <h2>Site Pur Beurre</h2>
-    </div>
-    {% block content %}
-    {% endblock %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <div id="page">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+                <div class="container">
+                    <div id="logo" class="d-flex">
+                        <a class="navbar-left" href="home.html">
+                            <img src="static/website/images/logo_pur_beurre.png" alt="" width="50" height="50">
+                        </a>
+                        <h1>Pur Beurre</h1>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                        <ul id="menu" class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <form class="form-inline my-2 my-lg-3">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+                                </form>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="jumbotron">
+                <h2>Site Pur Beurre</h2>
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
