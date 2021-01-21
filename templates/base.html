@@ -47,17 +47,16 @@
                     </div>
                 </nav>
             </header>
+
+            {% block content %}
+            {% endblock %}
+
             <footer class="py-5 bg-light fixed-bottom">
                 <div class="container" id="footer">
                     <a class="m-0 text-center text-black-50" href="#">Mentions légales</a>
                     <a class="m-0 text-center text-black-50" href="#">Contact</a>
                 </div>
             </footer>
-            <div class="jumbotron">
-                <h2>Site Pur Beurre</h2>
-            </div>
-            {% block content %}
-            {% endblock %}
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
