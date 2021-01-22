@@ -9,9 +9,6 @@ class HomeView(View):
         return render(request, 'home.html')
 
 
-
-
-
 def list_product(request):
     products = Product.objects.all()
     return render(request, 'list_product.html', {"products": products})
