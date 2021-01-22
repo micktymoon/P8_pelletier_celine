@@ -4,11 +4,18 @@
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+    background-color: #f5cea2;
+}
+
+.navbar
+{
+    background-color: #c45525;
 }
 
 h1, h2, h3, h4
 {
     font-family: "Open Sans", sans-serif;
+    color: black;
 }
 #logo
 {
@@ -36,4 +43,8 @@ h1, h2, h3, h4
     font-size: 1.5rem;
     display: flex;
     justify-content: space-around;
+}
+footer
+{
+    background-color: #c45525;
 }
