@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'website/detail.css' %}">
+{% endblock %}
+{% block content %}
+    {% if product %}
+        <div class="container" id="food-banner" >
+            <h1>{{product.name}}</h1>
+        </div>
+        <div class="container" id="food-details">
+            <div class="container row">
+                <div class="container col-md-6" id="nutriscore-block">
+                    <h2>Nutriscore</h2>
+                    <div class="container" id="nutriscore">
+                        <p>ABCDE liazjeoiazje</p>
+                    </div>
+                </div>
+                <div class="container col-md-6" id="nutritional-benchmarks">
+                    <h2>Repère nutritionnels pour 100g</h2>
+                </div>
+            </div>
+
+        </div>
+        <a role="button" href="#" class="btn btn-info btn-lg" id="button-OpenFF">Voir la fiche d'Opend Food Facts</a>
+    {% else %}
+        <span class="text-danger">Il n'y a aucun produit ici.</span>
+    {% endif %}
+{% endblock %}

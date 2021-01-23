@@ -1,0 +1,52 @@
+h1, h2, h3, h4, h5
+{
+    font-family: "Open Sans", sans-serif;
+}
+
+p
+{
+    font-family: "Scope One", sans-serif;
+    font-size: 1.2em;
+}
+
+#food-banner
+{
+    height: 100px;
+    background-color: #345a61;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+#food-banner h1
+{
+    padding: 10px;
+    color: #86ebe6;
+}
+
+#food-details
+{
+    font-size: 1.5em;
+}
+
+#nutriscore-block
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
+#nutritional-benchmarks
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#button-OpenFF
+{
+    margin: auto;
+
+}

@@ -11,7 +11,8 @@
         {% block styles %}
         {% endblock %}
         <link rel="stylesheet" type="text/css" href="{% static 'website/bootstrap_styles.css' %}">
-        <link rel="shortcut icon" type="image/png" href="static/website/images/logo_pur_beurre-favicon.png"/>
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href="{% static 'website/images/logo_pur_beurre-favicon.png' %}"/>
         <title>Pur Beurre</title>
     </head>
     <body>
@@ -21,7 +22,8 @@
                     <div class="container">
                         <div id="logo" class="d-flex">
                             <a class="navbar-left" href="">
-                                <img src="static/website/images/logo_pur_beurre.png" alt="" width="50" height="50">
+                                {% load static %}
+                                <img src="{% static 'website/images/logo_pur_beurre.png' %}" alt="" width="50" height="50">
                             </a>
                             <h1>Pur Beurre</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +43,10 @@
                                     <a class="nav-link fas fa-user fa-2x" href="#"></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="mesproduits"><img src="static/website/images/carrot.png" width="15" height="25" alt=""></a>
+                                    <a class="nav-link" href="mesaliments">
+                                        {% load static %}
+                                        <img src="{% static 'website/images/carrot.png' %}" width="15" height="25" alt="">
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link fas fa-sign-out-alt fa-2x" href="#"></a>

@@ -17,8 +17,8 @@
                         <div class="card">
                             <img class="card-img-top" src="..." alt="Card image cap">
                             <div class="card-body">
-                                <h2 class="card-title">{{ product.name }}</h2>
-                                <a class="far fa-save fa-sm">Sauvegarder</a>
+                                <a href="{% url 'detail' product.id %}"><h2 class="card-title">{{ product.name }}</h2></a>
+                                <a class="far fa-save fa-sm" href="#">Sauvegarder</a>
                             </div>
                         </div>
                     </div>

@@ -9,6 +9,18 @@ class HomeView(View):
         return render(request, 'home.html')
 
 
-def list_product(request):
-    products = Product.objects.all()
-    return render(request, 'list_product.html', {"products": products})
+class MyProductView(View):
+    def get(self, request):
+        products = Product.objects.all()
+        return render(request, 'list_product.html', {"products": products})
+
+
+class ProductView(View):
+    def get(self, request, id_product):
+        product = Product.objects.get(pk=id_product)
+        return render(request, 'detail.html', {"product": product})
+
+
+class ResultsView(View):
+    def get(self, request):
+        pass
