@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 
 from website.models import Product
@@ -17,7 +17,7 @@ class MyProductView(View):
 
 class ProductView(View):
     def get(self, request, id_product):
-        product = Product.objects.get(pk=id_product)
+        product = get_object_or_404(Product, pk=id_product)
         return render(request, 'detail.html', {"product": product})
 
 

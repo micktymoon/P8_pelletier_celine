@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -8,3 +9,7 @@ class Product(models.Model):
     ingredient = models.TextField(null=True)
     url = models.TextField(null=True)
     prix = models.DecimalField(max_digits=5, decimal_places=2)
+
+
+class User(AbstractUser):
+    pass
