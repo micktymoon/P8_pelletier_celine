@@ -1,13 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from website.models import Product
 
 
-class HomeView(View):
-    def get(self, request):
-        return render(request, 'home.html')
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 
 class MyProductView(ListView):
@@ -15,7 +14,6 @@ class MyProductView(ListView):
     paginate_by = 20
     template_name = 'list_product.html'
     context_object_name = "products"
-
 
 
 class ProductView(DetailView):
