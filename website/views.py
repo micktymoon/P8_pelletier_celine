@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
+from django.views.generic import DetailView, ListView
 
 from website.models import Product
 
@@ -9,16 +10,18 @@ class HomeView(View):
         return render(request, 'home.html')
 
 
-class MyProductView(View):
-    def get(self, request):
-        products = Product.objects.all()
-        return render(request, 'list_product.html', {"products": products})
+class MyProductView(ListView):
+    model = Product
+    paginate_by = 20
+    template_name = 'list_product.html'
+    context_object_name = "products"
 
 
-class ProductView(View):
-    def get(self, request, id_product):
-        product = get_object_or_404(Product, pk=id_product)
-        return render(request, 'detail.html', {"product": product})
+
+class ProductView(DetailView):
+    model = Product
+    template_name = 'detail.html'
+    slug_field = 'id'
 
 
 class ResultsView(View):
