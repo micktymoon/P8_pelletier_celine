@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'website/detail.css' %}">
+{% endblock %}
+{% block content %}
+    {% if user %}
+        <div class="container" id="user-banner" >
+            <h1>Ahoy</h1>
+            <h1>{{user.username}}!</h1>
+        </div>
+        <div class="container" id="user-details">
+            <div class="container">{{ user.email }}</div>
+        </div>
+    {% else %}
+        <span class="text-danger">Il n'y a aucun utilisateur ici.</span>
+    {% endif %}
+{% endblock %}

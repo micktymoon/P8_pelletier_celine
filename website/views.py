@@ -3,6 +3,7 @@ from django.views import View
 from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from website.models import Product
 
@@ -13,7 +14,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('HomeView')
+            return redirect('home')
     else:
         form = UserCreationForm
     return render(request, 'signup.html', {'form': form})
@@ -33,4 +34,11 @@ class MyProductView(ListView):
 class ProductView(DetailView):
     model = Product
     template_name = 'detail.html'
-    slug_field = 'id'
+
+
+class AccountView(DetailView):
+    model = User
+    template_name = 'account.html'
+
+    def get_object(self, queryset=None):
+        return self.request.user

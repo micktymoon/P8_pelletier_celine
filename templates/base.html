@@ -39,19 +39,23 @@
                                         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Chercher</button>
                                     </form>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link fas fa-user fa-2x" href="/login/"></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="mesaliments">
-                                        {% load static %}
-                                        <img src="{% static 'website/images/carrot.png' %}" width="15" height="25" alt="">
-                                    </a>
-                                </li>
                                 {% if request.user.is_authenticated %}
-                                <li class="nav-item">
-                                    <a class="nav-link fas fa-sign-out-alt fa-2x" href="/logout/"></a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link fas fa-user fa-2x" href="/account/"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/mesaliments/">
+                                            {% load static %}
+                                            <img src="{% static 'website/images/carrot.png' %}" width="15" height="25" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link fas fa-sign-out-alt fa-2x" href="/logout/"></a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link fas fa-sign-in-alt fa-2x" href="/login/"></a>
+                                    </li>
                                 {% endif %}
 
                             </ul>
