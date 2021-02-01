@@ -48,9 +48,12 @@
                                         <img src="{% static 'website/images/carrot.png' %}" width="15" height="25" alt="">
                                     </a>
                                 </li>
+                                {% if request.user.is_authenticated %}
                                 <li class="nav-item">
-                                    <a class="nav-link fas fa-sign-out-alt fa-2x" href="#"></a>
+                                    <a class="nav-link fas fa-sign-out-alt fa-2x" href="/logout/"></a>
                                 </li>
+                                {% endif %}
+
                             </ul>
                         </div>
                     </div>
