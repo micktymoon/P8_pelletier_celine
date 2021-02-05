@@ -2,21 +2,21 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from website.models import Product
+from website.forms import SignUpForm
 
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('home')
     else:
-        form = UserCreationForm
+        form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 
