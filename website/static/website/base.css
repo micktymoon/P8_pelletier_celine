@@ -12,11 +12,17 @@
     background-color: #c45525;
 }
 
-h1, h2, h3, h4
+h1, h2, h3, h4, h5
 {
     font-family: "Open Sans", sans-serif;
     color: black;
 }
+
+p
+{
+    font-family: "Scope One", sans-serif;
+}
+
 #logo
 {
     display: flex;

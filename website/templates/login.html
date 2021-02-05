@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% block styles %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'website/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/login.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="container">
-        <h1 class="title">Log in</h1>
+    <div class="container" id="log-in">
+        <h1 class="title">Connexion</h1>
 
         <form method="post" action=".">
             {% csrf_token %}
             {{ form.as_p }}
 
-            <button class="button btn-primary" type="submit">Log in</button>
+            <button class="button btn-primary btn-lg btn-block" type="submit">Se connecter</button>
         </form>
+        <p class="signup">Vous n'avez pas encore de compte? <a href="/signup/">Créez-en un!</a></p>
     </div>
-    <div class="container">
-    <p class="signup">Vous n'avez pas encore de compte? <a href="/signup/">Créez-en un!</a></p>
-    </div>
+
 {% endblock %}
