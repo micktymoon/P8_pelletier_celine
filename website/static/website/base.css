@@ -38,6 +38,13 @@ h1, h2, h3, h4
     margin-right: 10px;
 }
 
+#page-content
+{
+
+    padding-bottom: 5em;
+    position: relative;
+}
+
 #footer
 {
     font-size: 1.5rem;
@@ -47,4 +54,7 @@ h1, h2, h3, h4
 footer
 {
     background-color: #c45525;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
