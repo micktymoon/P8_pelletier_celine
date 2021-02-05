@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% block styles %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'website/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/signup.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="container">
-        <h1 class="title">Sign up</h1>
+    <div class="container row">
+        <div class="container col-sm-12 col-md-9" id="signup-content">
+            <h1 class="title">Créer un compte</h1>
 
-        <form method="post" action=".">
-            {% csrf_token %}
-            {{ form.as_p }}
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-            <button class="button btn-primary" type="submit">Sign up</button>
-        </form>
+                <button class="button btn-primary btn-lg btn-block" type="submit">Créer votre compte</button>
+            </form>
+        </div>
     </div>
+
 {% endblock %}

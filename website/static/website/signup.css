@@ -8,14 +8,7 @@ p
     font-family: "Scope One", sans-serif;
 }
 
-#log-in-content
-{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#log-in
+#signup-content
 {
     display: flex;
     flex-direction: column;
@@ -24,15 +17,5 @@ p
     background-color: white;
     border-radius: 20px;
     padding: 3%;
-}
-#log-in form
-{
-    font-size: 1em;
-}
-
-#log-in p
-{
     font-size: 1.5em;
 }
-
-
