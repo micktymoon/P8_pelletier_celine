@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'website/search.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container" id="food-wanted-banner">
+        <h1>Aliments recherché</h1>
+        <form method="post" action="/recherche/">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button btn-primary btn-lg btn-block" type="submit">recherche</button>
+        </form>
+    <p>{{ product.name }}</p>
+    </div>
+
+{% endblock %}
