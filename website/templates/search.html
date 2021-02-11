@@ -11,7 +11,7 @@
             {{ form.as_p }}
             <button class="button btn-primary btn-lg btn-block" type="submit">recherche</button>
         </form>
-    <p>{{ product.name }}</p>
+    <p>{{ product.name }} de {{ product.brand }}, nutriscore : {{ product.nutri_score }}</p>
     </div>
 
 {% endblock %}
