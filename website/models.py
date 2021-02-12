@@ -2,15 +2,31 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class Category(models.Model):
+    name_cat = models.CharField(max_length=255)
+
+
+class Store(models.Model):
+    name_store = models.CharField(max_length=255)
+
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     brand = models.CharField(max_length=255, null=True)
-    nutri_score = models.CharField(max_length=2, null=True)
-    ingredient = models.TextField(null=True)
+    nutri_score = models.CharField(max_length=2)
     url_off = models.TextField(null=True)
     url_image = models.TextField(null=True)
-    prix = models.DecimalField(max_digits=5, decimal_places=2)
+    nutriments_100g = models.TextField(null=True)
+    category = models.ManyToManyField(Category)
+    store = models.ManyToManyField(Store)
 
 
 class User(AbstractUser):
-    pass
+    product = models.ManyToManyField(Product, blank=True)
+
+
+
+
+
+
+

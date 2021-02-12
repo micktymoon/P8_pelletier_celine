@@ -67,7 +67,7 @@ def search_product(name_product):
             nutriment_100g = {}
             nutriments = path.get('nutriments', None)
             for nutriment in nutriments:
-                if "_100g" in nutriment:
+                if nutriment.endswith("_100g"):
                     nutriment_100g[nutriment] = path["nutriments"][nutriment]
 
             final_product["nutriments-100g"] = nutriment_100g
@@ -83,5 +83,5 @@ def search_product(name_product):
             pass
     return product_list
 
-
+print(search_product('prince'))
 
