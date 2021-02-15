@@ -6,12 +6,33 @@
 {% block content %}
     <div class="container" id="food-wanted-banner">
         <h1>Aliments recherché</h1>
-        <form method="post" action="/recherche/">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="button btn-primary btn-lg btn-block" type="submit">recherche</button>
-        </form>
-    <p>{{ product.name }} de {{ product.brand }}, nutriscore : {{ product.nutri_score }}</p>
+    </div>
+    <form method="post" action="/recherche/">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button btn-primary btn-lg btn-block" type="submit">recherche</button>
+    </form>
+    <div class="container" id="list-product">
+        <h2>Ici on aura nos produits.</h2>
+        <div class="container row">
+            {% if products %}
+                {% for product in products %}
+                    <div class="col-sm-12 col-md-4 card-food">
+                        <p class="nutri-score">{{ product.nutri_score }}</p>
+                        <div class="card">
+                            <img class="card-img-top" src="{{ product.url_image}}" alt="Card image cap" height="180">
+                            <div class="card-body">
+                                <a href="{% url 'detail' product.id %}"><h2 class="card-title">{{ product.name }}</h2></a>
+                                <a class="far fa-save fa-sm" href="#">Sauvegarder</a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% else %}
+                <span class="text-danger">Il n'y a aucun produit ici.</span>
+            {% endif %}
+        </div>
     </div>
 
 {% endblock %}

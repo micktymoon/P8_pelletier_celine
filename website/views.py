@@ -22,10 +22,10 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             search_prod = form.cleaned_data['search']
-            print(search_prod)
             product = Product.objects.all()
-            product = product.get(name=search_prod)
-            return render(request, 'search.html', {'search': search_prod, 'product': product})
+            product = product.filter(name__icontains=search_prod)
+            return render(request, 'search.html', {'search': search_prod,
+                                                   'products': product})
     else:
         form = SearchForm()
     return render(request, 'search.html', {'form': form})
