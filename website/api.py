@@ -82,6 +82,3 @@ def search_product(name_product):
             i += 1
             pass
     return product_list
-
-print(search_product('prince'))
-
