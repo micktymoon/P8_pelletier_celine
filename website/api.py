@@ -18,12 +18,15 @@ def get_word_remove_spaces(text):
         list
             The list of text words.
     """
-    list_words = text.split(",")
-    list_without_spaces = []
-    for word in list_words:
-        word = word.strip()
-        list_without_spaces.append(word)
-    return list_without_spaces
+    if text is None:
+        return 'NULL'
+    else:
+        list_words = text.split(",")
+        list_without_spaces = []
+        for word in list_words:
+            word = word.strip()
+            list_without_spaces.append(word)
+        return list_without_spaces
 
 
 def search_product(name_product):
