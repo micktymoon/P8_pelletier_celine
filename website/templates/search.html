@@ -20,7 +20,7 @@
                     <div class="col-sm-12 col-md-4 card-food">
                         <p class="nutri-score">{{ product.nutri_score }}</p>
                         <div class="card">
-                            <img class="card-img-top" src="{{ product.url_image}}" alt="Card image cap" height="180">
+                            <img class="card-img-top" src="{{ product.url_image}}" alt="Card image cap">
                             <div class="card-body">
                                 <a href="{% url 'detail' product.id %}"><h2 class="card-title">{{ product.name }}</h2></a>
                                 <a class="far fa-save fa-sm" href="#">Sauvegarder</a>

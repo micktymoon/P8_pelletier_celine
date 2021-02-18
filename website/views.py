@@ -25,7 +25,8 @@ def search(request):
             product = Product.objects.all()
             product = product.filter(name__icontains=search_prod)
             return render(request, 'search.html', {'search': search_prod,
-                                                   'products': product})
+                                                   'products': product,
+                                                   'form': form})
     else:
         form = SearchForm()
     return render(request, 'search.html', {'form': form})

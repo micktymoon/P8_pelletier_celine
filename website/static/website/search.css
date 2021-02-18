@@ -78,4 +78,6 @@ p
 #list-product .card img
 {
     padding: 10px;
+    max-height: 180px;
+    width: auto;
 }
