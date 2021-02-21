@@ -1,33 +1,7 @@
-{% extends 'base.html' %}
-{% block styles %}
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'website/list_product.css' %}">
-{% endblock %}
-{% block content %}
+{% extends 'search.html' %}
+{% block page-dif %}
     <div class="container" id="food-wanted-banner">
         <h1>Aliments recherché</h1>
     </div>
-    <div class="container" id="list-product">
-        <h2>Ici on aura nos produits.</h2>
-        <div class="container row">
-            {% if products %}
-                {% for product in products %}
-                    <div class="col-sm-12 col-md-4 card-food">
-                        <p class="nutri-score">A</p>
-                        <div class="card">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <a href="{% url 'detail' product.id %}"><h2 class="card-title">{{ product.name }}</h2></a>
-                                <a class="far fa-save fa-sm" href="#">Sauvegarder</a>
-                            </div>
-                        </div>
-                    </div>
-
-                {% endfor %}
-            {% else %}
-                <span class="text-danger">Il n'y a aucun produit ici.</span>
-            {% endif %}
-        </div>
-    </div>
-
 {% endblock %}
+

@@ -4,21 +4,23 @@
     <link rel="stylesheet" type="text/css" href="{% static 'website/search.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="container" id="food-wanted-banner">
-        <h1>Aliments recherché</h1>
-    </div>
-    <form method="post" action="/recherche/">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="button btn-primary btn-lg btn-block" type="submit">recherche</button>
-    </form>
+    {% block page-dif %}
+        <div class="container" id="food-wanted-banner">
+            <h1>Aliments recherché</h1>
+        </div>
+        <form method="post" action="/recherche/">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button btn-primary btn-lg btn-block" type="submit">recherche</button>
+        </form>
+    {% endblock %}
     <div class="container" id="list-product">
         <h2>Ici on aura nos produits.</h2>
         <div class="container row">
             {% if products %}
                 {% for product in products %}
                     <div class="col-sm-12 col-md-4 card-food">
-                        <p class="nutri-score">{{ product.nutri_score }}</p>
+                        <p class="nutri-score">{{ product.nutri_score.capitalize }}</p>
                         <div class="card">
                             <img class="card-img-top" src="{{product.url_image}}" alt="Card image cap">
                             <div class="card-body">

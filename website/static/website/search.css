@@ -49,6 +49,9 @@ p
     align-items: center;
     font-size: 1.2em;
     border-radius: 15px;
+    max-height: 300px;
+    min-height: 300px;
+
 }
 #list-product .card-body
 {
