@@ -22,7 +22,8 @@ class Command(BaseCommand):
                     url_off=product['url'],
                     defaults={
                         "url_image": product['image'],
-                        "nutriments_100g": product['nutriments-100g']
+                        "nutriments_100g": product['nutriments-100g'],
+                        "nutri_score": product['nutriscore']
                     },
                 )
 
