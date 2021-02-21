@@ -14,4 +14,4 @@ class SignUpForm(UserCreationForm):
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(label='Recherche', max_length=100)
+    search = forms.CharField(label='Produit recherché', max_length=100)

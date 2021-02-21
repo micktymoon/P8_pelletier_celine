@@ -1,5 +1,4 @@
 from django.core.management import BaseCommand
-from django.db.utils import IntegrityError
 from website.api import search_product
 from website.models import Product, Category, Store
 
