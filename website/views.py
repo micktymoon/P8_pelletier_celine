@@ -32,6 +32,16 @@ def search(request):
     return render(request, 'search.html', {'form': form})
 
 
+def save(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        user = request.user
+        user.product.add(product)
+        return redirect('detail', pk=product_id)
+    else:
+        return redirect('signup')
+
+
 class HomeView(TemplateView):
     template_name = 'home.html'
 
