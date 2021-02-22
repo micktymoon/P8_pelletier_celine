@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib.auth import login, get_user_model
+from django.db.models import Q
 from website.models import Product
 from website.forms import SignUpForm, SearchForm
 
@@ -23,7 +24,11 @@ def search(request):
         if form.is_valid():
             search_prod = form.cleaned_data['search']
             product = Product.objects.all()
-            product = product.filter(name__icontains=search_prod)
+            product = product.filter(
+                Q(name__icontains=search_prod) |
+                Q(category__name_cat__icontains=search_prod) |
+                Q(store__name_store__icontains=search_prod))
+
             return render(request, 'search.html', {'search': search_prod,
                                                    'products': product,
                                                    'form': form})
@@ -64,6 +69,3 @@ class AccountView(DetailView):
 
     def get_object(self, queryset=None):
         return self.request.user
-
-
-
