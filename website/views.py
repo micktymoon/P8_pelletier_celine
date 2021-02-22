@@ -58,10 +58,14 @@ class HomeView(TemplateView):
 
 
 class MyProductView(ListView):
-    model = Product
     paginate_by = 20
     template_name = 'list_product.html'
     context_object_name = "products"
+
+    def get_queryset(self):
+        user = self.request.user
+        products = Product.objects.filter(pk__in=user.product.all())
+        return products
 
 
 class ProductView(DetailView):
