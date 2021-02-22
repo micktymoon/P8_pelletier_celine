@@ -23,15 +23,21 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             search_prod = form.cleaned_data['search']
-            product = Product.objects.all()
-            product = product.filter(
-                Q(name__icontains=search_prod) |
-                Q(category__name_cat__icontains=search_prod) |
-                Q(store__name_store__icontains=search_prod))
+            product = Product.objects.\
+                filter(name__icontains=search_prod).first()
+            if product is not None:
+                subsitutes = Product.objects.filter(
+                    Q(nutri_score__lte=product.nutri_score),
+                    Q(category__in=product.category.all())).\
+                    distinct('name', 'nutri_score').order_by('nutri_score')
 
-            return render(request, 'search.html', {'search': search_prod,
-                                                   'products': product,
-                                                   'form': form})
+                return render(request, 'search.html', {'search': search_prod,
+                                                       'products': subsitutes,
+                                                       'form': form})
+            else:
+                render(request, 'search.html', {'search': search_prod,
+                                                'products': product,
+                                                'form': form})
     else:
         form = SearchForm()
     return render(request, 'search.html', {'form': form})
