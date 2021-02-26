@@ -1,0 +1,66 @@
+#page
+{
+    margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+    background-color: #e8a75d;
+}
+
+.navbar
+{
+    background-color: #c45525;
+}
+
+h1, h2, h3, h4, h5
+{
+    font-family: "Open Sans", sans-serif;
+    color: black;
+}
+
+p
+{
+    font-family: "Scope One", sans-serif;
+}
+
+#logo
+{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left
+{
+    margin-right: 10px;
+}
+
+.navbar-nav
+{
+    align-items: center;
+}
+
+.nav-item
+{
+    margin-right: 10px;
+}
+
+#page-content
+{
+
+    padding-bottom: 10em;
+    position: relative;
+}
+
+#footer
+{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+footer
+{
+    background-color: #c45525;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
