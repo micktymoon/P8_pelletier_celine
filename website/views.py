@@ -79,3 +79,7 @@ class AccountView(DetailView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class LegalNoticeView(TemplateView):
+    template_name = 'legal_notice.html'
