@@ -11,7 +11,7 @@
         <form method="post" action="/recherche/">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="button btn-secondary btn-lg" type="submit">Rechercher</button>
+            <button class="btn btn-secondary" type="submit">Rechercher</button>
         </form>
     {% endblock %}
     <div class="container" id="list-product">
@@ -23,7 +23,7 @@
                         <div class="card">
                             <img class="card-img-top" src="{{product.url_image}}" alt="Card image cap">
                             <div class="card-body">
-                                <a href="{% url 'detail' product.id %}"><h2 class="card-title">{{ product.name }}</h2></a>
+                                <a href="{% url 'detail' product.id %}"><p class="card-title">{{ product.name }}</p></a>
                                 <a class="far fa-save fa-sm" href="{% url 'save' product.id %}">Sauvegarder</a>
                             </div>
                         </div>

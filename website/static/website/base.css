@@ -46,14 +46,12 @@ p
 
 #page-content
 {
-
     padding-bottom: 10em;
     position: relative;
 }
 
 #footer
 {
-    font-size: 1.5rem;
     display: flex;
     justify-content: space-around;
 }

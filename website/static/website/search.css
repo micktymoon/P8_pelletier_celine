@@ -29,7 +29,6 @@ p
     justify-content: center;
     align-items: center;
     align-content: center;
-    font-size: 1.5em;
 }
 #list-product .card-food
 {
@@ -41,13 +40,12 @@ p
 
 #list-product .card
 {
-    width: 300px;
+    width: 100%;
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
     border-radius: 15px;
     max-height: 300px;
     min-height: 300px;
@@ -60,6 +58,7 @@ p
     justify-content: center;
     align-items: center;
     min-height: 100px;
+    padding: 1rem;
 
 }
 #list-product .nutri-score
@@ -69,7 +68,6 @@ p
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    font-size: 15px;
     font-weight: bold;
     line-height:30px;
     text-align: center;
@@ -82,13 +80,19 @@ p
 {
     padding: 10px;
     max-height: 180px;
+    max-width: 150px;
     width: auto;
+}
+
+#list-product .card-title
+{
+    overflow: auto;
+    max-height: 50px;
 }
 
 form
 {
     font-family: "Scope One", sans-serif;
-    font-size: 1.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
