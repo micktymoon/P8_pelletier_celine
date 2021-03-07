@@ -45,3 +45,14 @@ class SignUpFormTest(TestCase):
     def test_signup_form_email_field_max_length(self):
         form = SignUpForm()
         self.assertEqual(form.fields['email'].max_length, 254)
+
+
+class SearchFormTest(TestCase):
+    def test_search_form_search_field_label(self):
+        form = SearchForm()
+        self.assertTrue(form.fields['search'].label is None
+                        or form.fields['search'].label == 'Produit recherché')
+
+    def test_search_form_search_field_max_length(self):
+        form = SearchForm()
+        self.assertEqual(form.fields['search'].max_length, 100)
