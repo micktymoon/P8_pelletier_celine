@@ -3,7 +3,7 @@ from website.models import Product, Category, Store
 
 
 class ProductModelTest(TestCase):
-    def setUpTestData(self):
+    def setUp(self):
         self.product = Product.objects.create(name='Cola',
                                               brand='Coca',
                                               nutri_score='e',
@@ -50,9 +50,18 @@ class ProductModelTest(TestCase):
         max_length = self.product._meta.get_field('nutri_score').max_length
         self.assertEquals(max_length, 2)
 
+    def test_unique_together(self):
+        with self.assertRaises(Exception):
+            Product.objects.create(name='Cola',
+                                   brand='Coca',
+                                   nutri_score='e',
+                                   url_off='https://off.fr/cola',
+                                   url_image='https://image-cola.fr',
+                                   nutriments_100g='{glucose_100g: 6}')
+
 
 class CategoryModelTest(TestCase):
-    def setUpTestData(self):
+    def setUp(self):
         self.category = Category.objects.create(name_cat='Boissons')
 
     def test_name_cat_label(self):
