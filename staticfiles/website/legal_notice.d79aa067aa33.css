@@ -1,0 +1,24 @@
+h1, h2, h3, h4, h5
+{
+    font-family: "Open Sans", sans-serif;
+}
+
+p
+{
+    font-family: "Scope One", sans-serif;
+    margin: 1rem;
+}
+
+h1
+{
+    text-transform: uppercase;
+    margin: 2rem;
+}
+
+#legal_notice
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
