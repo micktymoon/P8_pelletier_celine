@@ -158,8 +158,7 @@ class SaveViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         login = self.client.login(username='testuser', password='testpassword')
         response = self.client.get(f'/sauvegarde/{self.product.id}/')
-        self.assertEqual(str(response.context['user']), 'testuser')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_view_save_product_user(self):
         login = self.client.login(username=self.test_user.username, password='testpassword')
