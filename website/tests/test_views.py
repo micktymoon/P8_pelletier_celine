@@ -1,8 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from website.models import Product, User
-from website.forms import SignUpForm, SearchForm
+from website.models import Product, User, Category
 
 
 class HomeViewTest(TestCase):
@@ -219,7 +218,6 @@ class SearchViewTest(TestCase):
                                                'https://image-cola.fr',
                                                nutriments_100g=
                                                '{glucose_100g: 6}')
-        self.product1.save()
         self.product2 = Product.objects.create(name='Eau',
                                                brand='Evian',
                                                nutri_score='a',
@@ -228,13 +226,30 @@ class SearchViewTest(TestCase):
                                                'https://image-eau.fr',
                                                nutriments_100g=
                                                '{glucose_100g: 6}')
-        self.product2.save()
+        self.product3 = Product.objects.create(name='kinder Maxi',
+                                               brand='Kinder',
+                                               nutri_score='e',
+                                               url_off='https://off.fr/kinder',
+                                               url_image=
+                                               'https://image-kinder.fr',
+                                               nutriments_100g=
+                                               '{glucose_100g: 70}')
+        self.category1 = Category.objects.create(name_cat='boisson')
+        self.category2 = Category.objects.create(name_cat='snack')
+        self.product1.category.add(self.category1)
+        self.product2.category.add(self.category1)
+        self.product3.category.add(self.category2)
 
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/recherche/')
         self.assertEqual(response.status_code, 200)
 
-    def test_post_show_products(self):
-        response = self.client.post('/recherche/', data={'search': 'eau'})
+    def test_post_show_products_substitutes(self):
+        response = self.client.post('/recherche/', data={'search': 'cola'})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['products'], 'eau')
+        self.assertTrue(self.product1 in response.context['products'])
+
+    def test_post_dont_show_products_not_substitutes(self):
+        response = self.client.post('/recherche/', data={'search': 'cola'})
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(self.product3 in response.context['products'])
