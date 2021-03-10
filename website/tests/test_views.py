@@ -235,6 +235,6 @@ class SearchViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_post_show_products(self):
-        response = self.client.post('/recherche/', {'search': 'cola'})
+        response = self.client.post('/recherche/', {'search': 'eau'})
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'eau', response.content)
+        self.assertEqual(response.context['products'], 'eau')
