@@ -209,3 +209,32 @@ class SignupViewTest(TestCase):
             User.objects.latest('id').username == 'testusernamefalse')
 
 
+class SearchViewTest(TestCase):
+    def setUp(self):
+        self.product1 = Product.objects.create(name='Cola',
+                                               brand='Coca',
+                                               nutri_score='e',
+                                               url_off='https://off.fr/cola',
+                                               url_image=
+                                               'https://image-cola.fr',
+                                               nutriments_100g=
+                                               '{glucose_100g: 6}')
+        self.product1.save()
+        self.product2 = Product.objects.create(name='Eau',
+                                               brand='Evian',
+                                               nutri_score='a',
+                                               url_off='https://off.fr/eau',
+                                               url_image=
+                                               'https://image-eau.fr',
+                                               nutriments_100g=
+                                               '{glucose_100g: 6}')
+        self.product2.save()
+
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/recherche/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_post_show_products(self):
+        response = self.client.post('/recherche/', {'search': 'cola'})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'eau', response.content)
