@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from website.models import Product, User
+from website.forms import SignUpForm, SearchForm
 
 
 class HomeViewTest(TestCase):
@@ -159,6 +160,7 @@ class SaveViewTest(TestCase):
         login = self.client.login(username='testuser', password='testpassword')
         response = self.client.get(f'/sauvegarde/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
+        self.assertTrue(response.url.startswith(f'/detail/{self.product.id}'))
 
     def test_view_save_product_user(self):
         login = self.client.login(username=self.test_user.username, password='testpassword')
@@ -171,3 +173,39 @@ class SaveViewTest(TestCase):
         response = self.client.get(f'/sauvegarde/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.url.startswith(f'/signup/'))
+
+
+class SignupViewTest(TestCase):
+    def setUp(self):
+        self.test_user = User.objects.create_user(username='testuser',
+                                                  password='testpassword',
+                                                  email='testuser@email.fr')
+        self.test_user.save()
+
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/signup/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_post_save_user_and_redirect_to_home(self):
+        response = self.client.post('/signup/',
+                                    data={'username': 'testusername',
+                                          'first_name': 'testfirstname',
+                                          'last_name': 'testlastname',
+                                          'email': 'test@email.com',
+                                          'password1': 'TestPassword1*',
+                                          'password2': 'TestPassword1*'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(response.url.startswith('/'))
+        self.assertEqual(User.objects.latest('id').username, 'testusername')
+
+    def test_post_fail(self):
+        response = self.client.post('/signup/',
+                                    data={'username': 'testusernamefalse',
+                                          'first_name': 'testfirstname',
+                                          'last_name': 'testlastname',
+                                          'email': 'test@email.com'})
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(
+            User.objects.latest('id').username == 'testusernamefalse')
+
+
