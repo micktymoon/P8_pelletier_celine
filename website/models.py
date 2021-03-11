@@ -3,14 +3,17 @@ from django.db import models
 
 
 class Category(models.Model):
+    """Store a category in the database"""
     name_cat = models.CharField(max_length=255, unique=True)
 
 
 class Store(models.Model):
+    """Store a store in the database"""
     name_store = models.CharField(max_length=255, unique=True)
 
 
 class Product(models.Model):
+    """Store a product in the database"""
     name = models.CharField(max_length=255)
     brand = models.CharField(max_length=255, null=True)
     nutri_score = models.CharField(max_length=2)
@@ -25,4 +28,5 @@ class Product(models.Model):
 
 
 class User(AbstractUser):
+    """Store an user in the database"""
     product = models.ManyToManyField(Product, blank=True)

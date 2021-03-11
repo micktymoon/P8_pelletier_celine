@@ -7,6 +7,7 @@ from website.forms import SignUpForm, SearchForm
 
 
 def signup(request):
+    """A view that displays the new account registration form."""
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -19,6 +20,7 @@ def signup(request):
 
 
 def search(request):
+    """A view that displays the product search."""
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -44,6 +46,9 @@ def search(request):
 
 
 def save(request, product_id):
+    """A view that links a product to a user and redirects
+    to the detail page of the saved product.
+    If the user is not logged in, redirects to the login page."""
     product = get_object_or_404(Product, pk=product_id)
     if request.user.is_authenticated:
         user = request.user
@@ -54,10 +59,12 @@ def save(request, product_id):
 
 
 class HomeView(TemplateView):
+    """A view that displays the home page."""
     template_name = 'home.html'
 
 
 class MyProductView(ListView):
+    """A view that displays the products linked to the logged in user."""
     paginate_by = 20
     template_name = 'list_product.html'
     context_object_name = "products"
@@ -69,11 +76,13 @@ class MyProductView(ListView):
 
 
 class ProductView(DetailView):
+    """A view that displays the details of a product."""
     model = Product
     template_name = 'detail.html'
 
 
 class AccountView(DetailView):
+    """A view that displays the details of a user account."""
     model = get_user_model()
     template_name = 'account.html'
 
@@ -82,4 +91,5 @@ class AccountView(DetailView):
 
 
 class LegalNoticeView(TemplateView):
+    """A view that displays the legal notices of the site."""
     template_name = 'legal_notice.html'

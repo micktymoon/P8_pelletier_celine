@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class SignUpForm(UserCreationForm):
+    """A form to register new user accounts"""
+
     first_name = forms.CharField(max_length=30,
                                  required=False,
                                  help_text='Entrez votre prénom.')
@@ -25,4 +27,5 @@ class SignUpForm(UserCreationForm):
 
 
 class SearchForm(forms.Form):
+    """A form to search for a product in the database"""
     search = forms.CharField(label='Produit recherché', max_length=100)

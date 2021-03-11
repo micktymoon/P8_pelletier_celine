@@ -4,6 +4,7 @@ from website.models import Product, Category, Store
 
 
 class Command(BaseCommand):
+    """A command that fills the database with a few products """
     help = 'File the database with some products.'
 
     def handle(self, *args, **options):
