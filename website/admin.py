@@ -7,4 +7,3 @@ admin.site.register(Product)
 admin.site.register(User)
 admin.site.register(Store)
 admin.site.register(Category)
-

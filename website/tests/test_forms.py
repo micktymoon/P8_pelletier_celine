@@ -16,7 +16,8 @@ class SignUpFormTest(TestCase):
 
     def test_signup_form_first_name_field_label(self):
         self.assertTrue(self.form.fields['first_name'].label is None
-                        or self.form.fields['first_name'].label == 'first name')
+                        or
+                        self.form.fields['first_name'].label == 'first name')
 
     def test_signup_form_last_name_field_label(self):
         self.assertTrue(self.form.fields['last_name'].label is None

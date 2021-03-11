@@ -26,10 +26,3 @@ class Product(models.Model):
 
 class User(AbstractUser):
     product = models.ManyToManyField(Product, blank=True)
-
-
-
-
-
-
-

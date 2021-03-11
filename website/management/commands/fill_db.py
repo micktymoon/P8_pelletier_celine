@@ -28,10 +28,12 @@ class Command(BaseCommand):
 
                 categories = product['category']
                 for category in categories:
-                    cat, cat_created = Category.objects.get_or_create(name_cat=category)
+                    cat, cat_created = Category.objects.get_or_create(
+                        name_cat=category)
                     obj.category.add(cat)
 
                 stores = product['store']
                 for store in stores:
-                    sto, sto_created = Store.objects.get_or_create(name_store=store)
+                    sto, sto_created = Store.objects.get_or_create(
+                        name_store=store)
                     obj.store.add(sto)

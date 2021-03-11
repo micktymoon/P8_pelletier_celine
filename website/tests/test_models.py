@@ -4,14 +4,13 @@ from website.models import Product, Category, Store
 
 class ProductModelTest(TestCase):
     def setUp(self):
-        self.product = Product.objects.create(name='Cola',
-                                              brand='Coca',
-                                              nutri_score='e',
-                                              url_off='https://off.fr/cola',
-                                              url_image=
-                                              'https://image-cola.fr',
-                                              nutriments_100g=
-                                              '{glucose_100g: 6}')
+        self.product = Product.objects.create(
+            name='Cola',
+            brand='Coca',
+            nutri_score='e',
+            url_off='https://off.fr/cola',
+            url_image='https://image-cola.fr',
+            nutriments_100g='{glucose_100g: 6}')
 
     def test_name_label(self):
         field_label = self.product._meta.get_field('name').verbose_name
@@ -84,36 +83,3 @@ class StoreModelTest(TestCase):
     def test_name_store_max_length(self):
         max_length = self.store._meta.get_field('name_store').max_length
         self.assertEquals(max_length, 255)
-
-
-
-
-
-
-
-
-
-
-
-
-# class YourTestClass(TestCase):
-#     @classmethod
-#     def setUpTestData(cls):
-#         print("setUpTestData: Run once to set up non-modified data for all class methods.")
-#         pass
-#
-#     def setUp(self):
-#         print("setUp: Run once for every test method to setup clean data.")
-#         pass
-#
-#     def test_false_is_false(self):
-#         print("Method: test_false_is_false.")
-#         self.assertFalse(False)
-#
-#     def test_false_is_true(self):
-#         print("Method: test_false_is_true.")
-#         self.assertTrue(False)
-#
-#     def test_one_plus_one_equals_two(self):
-#         print("Method: test_one_plus_one_equals_two.")
-#         self.assertEqual(1 + 1, 2)
