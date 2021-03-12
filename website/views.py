@@ -55,7 +55,7 @@ def save(request, product_id):
         user.product.add(product)
         return redirect('detail', pk=product_id)
     else:
-        return redirect('signup')
+        return redirect('login')
 
 
 class HomeView(TemplateView):
