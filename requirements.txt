@@ -17,3 +17,4 @@ whitenoise==5.2.0
 flake8
 coverage
 docutils
+selenium
