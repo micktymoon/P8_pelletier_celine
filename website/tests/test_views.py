@@ -170,7 +170,7 @@ class SaveViewTest(TestCase):
     def test_view_redirect_to_signup_if_no_logged_in(self):
         response = self.client.get(f'/sauvegarde/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith('/signup/'))
+        self.assertTrue(response.url.startswith('/login/'))
 
 
 class SignupViewTest(TestCase):
