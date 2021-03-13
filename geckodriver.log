@@ -158,3 +158,8 @@ Exiting due to channel error.
 1615665081882	Marionette	INFO	Listening on port 38979
 1615665081900	Marionette	WARN	TLS certificate errors will be ignored for this session
 1615665102624	Marionette	INFO	Stopped listening on port 38979
+1615674928110	geckodriver	INFO	Listening on 127.0.0.1:58701
+1615674929045	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiled7m45Y"
+1615674931849	Marionette	INFO	Listening on port 42335
+1615674931861	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615674963368	Marionette	INFO	Stopped listening on port 42335

@@ -1,17 +1,16 @@
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import sys
+import os
 import time
 
 
 class UserStoryTest(StaticLiveServerTestCase):
     @classmethod
     def setUp(cls):
-        sys.path.append("/home/celine/workspace/P8/PurBeurreSite/driver"
-                        "/geckodriver")
+        sys.path.append(os.path.abspath('driver/geckodriver'))
         cls.browser = webdriver.Firefox(
-            executable_path="/home/celine/workspace/P8/PurBeurreSite/"
-                            "driver/geckodriver")
+            executable_path=os.path.abspath('driver/geckodriver'))
 
     @classmethod
     def tearDownClass(cls):
