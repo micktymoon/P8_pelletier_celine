@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=celine
+Group=www-data
+WorkingDirectory=/home/celine/workspace/P8/PurBeurreSite
+ExecStart=/home/celine/workspace/P8/newenv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          PurBeurreSite.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
