@@ -18,3 +18,4 @@ flake8
 coverage
 docutils
 selenium
+sentry-sdk
