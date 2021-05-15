@@ -1,0 +1,28 @@
+h1, h2, h3, h4, h5
+{
+    font-family: "Open Sans", sans-serif;
+}
+
+p
+{
+    font-family: "Scope One", sans-serif;
+}
+
+#log-in-content
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#log-in
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3%;
+}
+

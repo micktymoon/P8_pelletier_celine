@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'website/detail.css' %}">
+{% endblock %}
+{% block content %}
+    {% if product %}
+        <div id="page-detail">
+            <div class="container" id="food-banner" style="background-image: url('{{product.url_image}}');">
+                <h1>{{product.name}}</h1>
+            </div>
+            <div class="container" id="food-details">
+                <div class="container row">
+                    <div class="container col-md-6" id="nutriscore-block">
+                        <div class="container" id="nutriscore">
+                            {% if product.nutri_score == 'a' %}
+                                <img class="img-nutriscore" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nutri-score-A.svg/1200px-Nutri-score-A.svg.png" alt="Nutri-score-A.svg">
+                            {% elif product.nutri_score == 'b' %}
+                                <img class="img-nutriscore" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nutri-score-B.svg/1200px-Nutri-score-B.svg.png" alt="Nutri-score-B.svg">
+                            {% elif product.nutri_score == 'c' %}
+                                <img class="img-nutriscore" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nutri-score-C.svg/1200px-Nutri-score-C.svg.png" alt="Nutri-score-C.svg">
+                            {% elif product.nutri_score == 'd' %}
+                                <img class="img-nutriscore" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Nutri-score-D.svg/1200px-Nutri-score-D.svg.png" alt="Nutri-score-D.svg">
+                            {% elif product.nutri_score == 'e' %}
+                                <img class="img-nutriscore" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Nutri-score-E.svg/1200px-Nutri-score-E.svg.png" alt="Nutri-score-E.svg">
+                            {% endif%}
+
+                        </div>
+                    </div>
+                    <div class="container col-md-6" id="nutritional-benchmarks">
+                        <h2>Repère nutritionnels pour 100g</h2>
+                        <p>{{ product.nutriments_100g }}</p>
+                    </div>
+                </div>
+            </div>
+            <a role="button" href="{{ product.url_off }}" class="btn btn-info btn-lg" id="button-OpenFF">Voir la fiche d'Opend Food Facts</a>
+        </div>
+    {% else %}
+        <span class="text-danger">Il n'y a aucun produit ici.</span>
+    {% endif %}
+
+{% endblock %}
