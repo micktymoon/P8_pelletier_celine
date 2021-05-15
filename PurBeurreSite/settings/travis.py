@@ -10,3 +10,5 @@ DATABASES = {
         'PORT': '',
     },
 }
+
+STATICFILES_DIRS = [os.path.join('website/static/website')]
