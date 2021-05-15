@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         list_name = ["eau", "jus de pomme", "sprite", "prince", "kinder",
                      "pizza regina", "pizza 4 fromages", "magnum amande",
-                     "glace vanille", "camembert", "sainte maure",
+                     "glace vanille", "camembert",
                      "pulco", "haricot", "petit pois"]
 
         for name in list_name:
