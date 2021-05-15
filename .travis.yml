@@ -11,8 +11,8 @@ services:
   - postgresql
 
 script:
-  - ./manage.py collectstatic
-  - ./manage.py makemigrations
-  - ./manage.py migrate
-  - ./manage.py fill_db
-  - ./manage.py test
+  - manage.py collectstatic
+  - manage.py makemigrations
+  - manage.py migrate
+  - manage.py fill_db
+  - manage.py test
