@@ -11,4 +11,4 @@ services:
   - postgresql
 
 script:
-  - python3 PurBeurreSite/manage.py collectstatic
+  - python3 ./manage.py collectstatic
