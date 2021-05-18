@@ -11,4 +11,4 @@ DATABASES = {
     },
 }
 
-STATICFILES_DIRS = [os.path.join('website/static/website')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'website/static/website')]
