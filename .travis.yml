@@ -18,5 +18,8 @@ script:
   - python3 ./manage.py makemigrations
   - python3 ./manage.py migrate
   - python3 ./manage.py fill_db
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
   - xvfb-run make test
-  - python3 ./manage.py test
+#  - python3 ./manage.py test
