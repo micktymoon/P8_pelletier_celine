@@ -2,6 +2,8 @@ language: python
 python:
   - '3.7'
 
+dist: xenial
+
 before_script:
   - pip install -r requirements.txt
 
@@ -9,10 +11,12 @@ env: DJANGO_SETTINGS_MODULE=PurBeurreSite.settings.travis
 
 services:
   - postgresql
+  - xvfb
 
 script:
   - python3 ./manage.py collectstatic
   - python3 ./manage.py makemigrations
   - python3 ./manage.py migrate
   - python3 ./manage.py fill_db
+  - xvfb-run make test
   - python3 ./manage.py test
