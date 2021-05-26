@@ -8,15 +8,18 @@ before_script:
   - pip install -r requirements.txt
 
 env: DJANGO_SETTINGS_MODULE=PurBeurreSite.settings.travis
+  global:
+    - MOZ_HEADLESS=1
+
+addons:
+  firefox: latest
 
 services:
   - postgresql
-  - xvfb
 
 script:
   - python3 ./manage.py collectstatic
   - python3 ./manage.py makemigrations
   - python3 ./manage.py migrate
   - python3 ./manage.py fill_db
-  - xvfb-run make test
-#  - python3 ./manage.py test
+  - python3 ./manage.py test
