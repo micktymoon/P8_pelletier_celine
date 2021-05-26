@@ -6,9 +6,6 @@ dist: xenial
 
 before_script:
   - pip install -r requirements.txt
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
 
 env: DJANGO_SETTINGS_MODULE=PurBeurreSite.settings.travis
 
