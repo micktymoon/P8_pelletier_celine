@@ -72,3 +72,4 @@ class UserStoryTest(StaticLiveServerTestCase):
         time.sleep(3)
         self.assertEqual(self.browser.find_element_by_css_selector('h1').text,
                          "Du gras, oui, mais de qualité!")
+
