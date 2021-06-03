@@ -2,6 +2,12 @@ from django.urls import path
 from django.contrib.auth import views
 from website import views as website_views
 
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+    return division_by_zero
+
+
 urlpatterns = [
     path('', website_views.HomeView.as_view(), name="home"),
     path('mesaliments/', website_views.MyProductView.as_view(),
@@ -17,4 +23,6 @@ urlpatterns = [
     path('sauvegarde/<int:product_id>/', website_views.save, name="save"),
     path('mentionslegales/', website_views.LegalNoticeView.as_view(),
          name="legal_notice"),
+    path('erreurtest/', website_views.errortestview, name="erreurtest"),
+    path('erreurzero/', trigger_error),
 ]

@@ -93,3 +93,7 @@ class AccountView(DetailView):
 class LegalNoticeView(TemplateView):
     """A view that displays the legal notices of the site."""
     template_name = 'legal_notice.html'
+
+
+def errortestview(request):
+    raise Exception('Erreur Test pour Sentry')
