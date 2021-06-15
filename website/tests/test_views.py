@@ -172,6 +172,12 @@ class SaveViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.url.startswith('/login/'))
 
+    def test_method_get_not_save_product(self):
+        self.client.login(username=self.test_user.username,
+                          password='testpassword')
+        response = self.client.get(f'/sauvegarde/{self.product.id}/')
+        self.assertEqual(response.status_code, 405)
+
 
 class SignupViewTest(TestCase):
     def setUp(self):
