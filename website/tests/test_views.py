@@ -155,20 +155,20 @@ class SaveViewTest(TestCase):
 
     def test_view_url_exists_at_desired_location(self):
         self.client.login(username='testuser', password='testpassword')
-        response = self.client.get(f'/sauvegarde/{self.product.id}/')
+        response = self.client.post(f'/sauvegarde/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.url.startswith(f'/detail/{self.product.id}'))
 
     def test_view_save_product_user(self):
         self.client.login(username=self.test_user.username,
                           password='testpassword')
-        response = self.client.get(f'/sauvegarde/{self.product.id}/')
+        response = self.client.post(f'/sauvegarde/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
         self.assertTrue(self.product in self.test_user.product.all())
         self.assertTrue(response.url.startswith(f'/detail/{self.product.id}'))
 
     def test_view_redirect_to_signup_if_no_logged_in(self):
-        response = self.client.get(f'/sauvegarde/{self.product.id}/')
+        response = self.client.post(f'/sauvegarde/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.url.startswith('/login/'))
 

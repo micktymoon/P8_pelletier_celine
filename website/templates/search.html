@@ -24,7 +24,10 @@
                             <img class="card-img-top" src="{{product.url_image}}" alt="Card image cap">
                             <div class="card-body">
                                 <a href="{% url 'detail' product.id %}"><p class="card-title">{{ product.name }}</p></a>
-                                <a class="far fa-save fa-sm" href="{% url 'save' product.id %}">Sauvegarder</a>
+                                <form action="{% url 'save' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Sauvegarder">
+                                </form>
                             </div>
                         </div>
                     </div>

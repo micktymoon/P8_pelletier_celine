@@ -1,9 +1,11 @@
+from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib.auth import login, get_user_model
 from django.db.models import Q
 from website.models import Product
 from website.forms import SignUpForm, SearchForm
+from django.http import HttpResponseNotAllowed
 
 
 def signup(request):
@@ -49,13 +51,16 @@ def save(request, product_id):
     """A view that links a product to a user and redirects
     to the detail page of the saved product.
     If the user is not logged in, redirects to the login page."""
-    product = get_object_or_404(Product, pk=product_id)
-    if request.user.is_authenticated:
-        user = request.user
-        user.product.add(product)
-        return redirect('detail', pk=product_id)
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        if request.user.is_authenticated:
+            user = request.user
+            user.product.add(product)
+            return redirect('detail', pk=product.id)
+        else:
+            return redirect('login')
     else:
-        return redirect('login')
+        return HttpResponseNotAllowed('Bad request method')
 
 
 class HomeView(TemplateView):
