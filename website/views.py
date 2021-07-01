@@ -1,4 +1,3 @@
-from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib.auth import login, get_user_model

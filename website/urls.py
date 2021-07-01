@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls import url
 from django.contrib.auth import views
 from website import views as website_views
 
@@ -25,4 +26,5 @@ urlpatterns = [
          name="legal_notice"),
     path('erreurtest/', website_views.errortestview, name="erreurtest"),
     path('erreurzero/', trigger_error),
+    url('^', include('django.contrib.auth.urls')),
 ]
