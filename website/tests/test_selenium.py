@@ -26,10 +26,10 @@ class UserStoryTest(StaticLiveServerTestCase):
                                              brand='Dolce Pizza',
                                              nutri_score='e',
                                              url_off='https://off.fr/Regina',
-                                             url_image=
-                                             'https://image-regina.fr',
-                                             nutriments_100g=
-                                             '{glucose_100g: 6}')
+                                             url_image='https://image-regina.'
+                                                       'fr',
+                                             nutriments_100g='{glucose_100g: '
+                                                             '6}')
         cls.product.save()
         cls.cat = Category.objects.create(name_cat='pizza')
         cls.cat.save()
@@ -124,4 +124,3 @@ class UserStoryTest(StaticLiveServerTestCase):
         btn_changepassword.click()
         self.assertEqual(len(mail.outbox), 1)
         time.sleep(1)
-
