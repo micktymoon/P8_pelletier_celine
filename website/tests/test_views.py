@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+from django.core import mail
 from django.test import TestCase
 from django.urls import reverse
 
@@ -255,3 +257,25 @@ class SearchViewTest(TestCase):
         response = self.client.post('/recherche/', data={'search': 'cola'})
         self.assertEqual(response.status_code, 200)
         self.assertFalse(self.product3 in response.context['products'])
+
+
+class PasswordResetViewTest(TestCase):
+    def setUp(self):
+        self.test_user = User.objects.create_user(username='testuser',
+                                                  password='testpassword',
+                                                  email='testuser@email.fr')
+        self.test_user.save()
+
+    def test_view_send_mail(self):
+        self.assertEqual(len(mail.outbox), 0)
+        response = self.client.post('/password_reset/',
+                                    data={'email': 'testuser@email.fr'})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(mail.outbox), 1)
+
+    def test_view_not_send_mail(self):
+        self.assertEqual(len(mail.outbox), 0)
+        response = self.client.post('/password_reset/',
+                                    data={'email': 'test@email.fr'})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(mail.outbox), 0)
