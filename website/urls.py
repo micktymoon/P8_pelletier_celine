@@ -27,4 +27,5 @@ urlpatterns = [
     path('erreurtest/', website_views.errortestview, name="erreurtest"),
     path('erreurzero/', trigger_error),
     url('^', include('django.contrib.auth.urls')),
+    path('contact/', website_views.contact, name='contact'),
 ]

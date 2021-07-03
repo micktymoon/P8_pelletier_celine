@@ -1,9 +1,10 @@
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib.auth import login, get_user_model
 from django.db.models import Q
 from website.models import Product
-from website.forms import SignUpForm, SearchForm
+from website.forms import SignUpForm, SearchForm, ContactForm
 from django.http import HttpResponseNotAllowed
 
 
@@ -18,6 +19,24 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def contact(request):
+    """A view that sends a message to the contact of the website"""
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            message = form.cleaned_data['message']
+            email_user = form.cleaned_data['email']
+            send_mail('Problème avec le site',
+                      f'{name}\n{email_user}\n{message}',
+                      email_user,
+                      ['micktymoon@gmail.com'])
+            return redirect('home')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
 
 
 def search(request):
@@ -101,3 +120,5 @@ class LegalNoticeView(TemplateView):
 
 def errortestview(request):
     raise Exception('Erreur Test pour Sentry')
+
+

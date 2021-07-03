@@ -29,3 +29,10 @@ class SignUpForm(UserCreationForm):
 class SearchForm(forms.Form):
     """A form to search for a product in the database"""
     search = forms.CharField(label='Produit recherché', max_length=100)
+
+
+class ContactForm(forms.Form):
+    """A form that sends a message to the contact of the website"""
+    name = forms.CharField(label='Nom, Prénom', max_length=100)
+    email = forms.CharField(label='Email', max_length=100)
+    message = forms.CharField(label='Message')
