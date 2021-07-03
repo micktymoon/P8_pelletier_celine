@@ -278,3 +278,30 @@ class PasswordResetViewTest(TestCase):
                                     data={'email': 'test@email.fr'})
         self.assertEqual(response.status_code, 302)
         self.assertEqual(len(mail.outbox), 0)
+
+
+class ContactViewTest(TestCase):
+    def setUp(self):
+        self.test_user = User.objects.create_user(username='testuser',
+                                                  password='testpassword',
+                                                  email='testuser@email.fr')
+        self.test_user.save()
+
+    def test_view_send_mail(self):
+        self.assertEqual(len(mail.outbox), 0)
+        response = self.client.post('/contact/',
+                                    data={'name': 'testuser',
+                                          'email': 'testuser@email.fr',
+                                          'message':
+                                              'Impossible de me connecter.'})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(len(mail.outbox), 1)
+
+    def test_view_not_send_mail(self):
+        self.assertEqual(len(mail.outbox), 0)
+        response = self.client.post('/contact/',
+                                    data={'name': 'testuser',
+                                          'message':
+                                              'Impossible de me connecter.'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(mail.outbox), 0)
