@@ -35,4 +35,4 @@ class ContactForm(forms.Form):
     """A form that sends a message to the contact of the website"""
     name = forms.CharField(label='Nom, Prénom', max_length=100)
     email = forms.CharField(label='Email', max_length=100)
-    message = forms.CharField(label='Message')
+    message = forms.CharField(widget=forms.Textarea, label='Message')
