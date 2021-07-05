@@ -41,7 +41,6 @@ class UserStoryTest(StaticLiveServerTestCase):
         super().tearDownClass()
 
     def test_user_story(self):
-        # self.browser.get("http://127.0.0.1/")
         self.browser.get('%s%s' % (self.live_server_url, '/'))
         self.assertIn('Pur Beurre', self.browser.title)
         login = self.browser.find_element_by_css_selector('a.fa-sign-in-alt')

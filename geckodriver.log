@@ -404,3 +404,23 @@ JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691:
 ###!!! [Parent][MessageChannel] Error: (msgtype=0xB000E,name=PBackgroundIDBDatabase::Msg_CloseAfterInvalidationComplete) Channel error: cannot send/recv
 
 1625156947943	Marionette	INFO	Stopped listening on port 39775
+1625497712985	geckodriver	INFO	Listening on 127.0.0.1:45409
+1625497713944	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5akFyO"
+1625497716394	Marionette	INFO	Listening on port 46003
+1625497716463	Marionette	WARN	TLS certificate errors will be ignored for this session
+1625497724399	geckodriver	INFO	Listening on 127.0.0.1:48621
+1625497724423	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqWeivP"
+1625497726577	Marionette	INFO	Listening on port 44153
+1625497726630	Marionette	WARN	TLS certificate errors will be ignored for this session
+1625497738806	Marionette	INFO	Stopped listening on port 44153
+1625497784264	Marionette	INFO	Stopped listening on port 46003
+1625497826237	geckodriver	INFO	Listening on 127.0.0.1:60929
+1625497826240	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileUCJFoY"
+1625497828292	Marionette	INFO	Listening on port 42531
+1625497828358	Marionette	WARN	TLS certificate errors will be ignored for this session
+1625497836122	geckodriver	INFO	Listening on 127.0.0.1:36143
+1625497836125	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4sSZrS"
+1625497838234	Marionette	INFO	Listening on port 33249
+1625497838331	Marionette	WARN	TLS certificate errors will be ignored for this session
+1625497850441	Marionette	INFO	Stopped listening on port 33249
+1625497874384	Marionette	INFO	Stopped listening on port 42531

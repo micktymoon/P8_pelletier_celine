@@ -1,4 +1,6 @@
 /PurBeurreSite/settings/production.py
+.coverage
+geckodriver.log
 __pycache__
 /staticfiles/
 <<<<<<< HEAD
