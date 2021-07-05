@@ -120,5 +120,3 @@ class LegalNoticeView(TemplateView):
 
 def errortestview(request):
     raise Exception('Erreur Test pour Sentry')
-
-
